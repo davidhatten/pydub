@@ -45,10 +45,10 @@ def speedup(seg, playback_speed=1.5, chunk_size=150, crossfade=25):
 
     if playback_speed < 2.0:
         # throwing out more than half the audio - keep 50ms chunks
-        ms_to_remove_per_chunk = int(chunk_size * (1 - atk) / atk)
+        ms_to_remove_per_chunk = 1
     else:
         # throwing out less than half the audio - throw out 50ms chunks
-        ms_to_remove_per_chunk = int(chunk_size)
+        ms_to_remove_per_chunk = 1
         chunk_size = int(atk * chunk_size / (1 - atk))
 
     # the crossfade cannot be longer than the amount of audio we're removing
